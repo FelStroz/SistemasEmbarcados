@@ -1,0 +1,15 @@
+#!/bin/sh
+
+echo "Starting rcS..."
+
+echo "++ Mounting filesystem"
+
+mount -t proc nodev /proc
+mount -t sysfs nodev /sys
+#mount -t tmpfs nodev /dev
+mount -t /dev/mmcblk0p3 /usr/data
+
+echo "++ Starting http daemon"
+#/usr/sbin/httpd -h /www
+
+

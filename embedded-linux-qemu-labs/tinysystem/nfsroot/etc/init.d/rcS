@@ -1,0 +1,18 @@
+#!/bin/sh
+echo " "
+echo "Starting rcS..."
+
+echo " "
+echo "++ Mounting filesystem"
+
+mount -t proc nodev /proc
+mount -t sysfs nodev /sys
+mount -t ext4 /dev/mmcblk0p3 /www/upload/files
+mount -t tmpfs run /var/log
+
+echo " "
+echo "++ Starting http daemon"
+/usr/sbin/httpd -h /www
+
+echo " "
+echo "++ Server running on 192.167.0.100 ++"
